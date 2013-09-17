@@ -26,8 +26,12 @@ var StullerApi = function(opts) {
 
 };
 
-// These values should not be in a prototype as they will be shared... not so
-// great.
+/**
+ * Update values of the object
+ *
+ * @param Object opts
+ *
+ */
 StullerApi.prototype.update = function(opts) {
 
     opts = opts || {};
@@ -35,6 +39,8 @@ StullerApi.prototype.update = function(opts) {
     for (var value in opts) {
         this[value] = opts[value];
     }
+
+    return this;
 
 };
 

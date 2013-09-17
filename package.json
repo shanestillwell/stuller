@@ -12,7 +12,12 @@
     "xml2js": "~0.2.8",
     "request": "~2.27.0"
   },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/shanestillwell/stuller"
+  },
   "devDependencies": {
-    "chai": "~1.7.2"
+    "chai": "~1.7.2",
+    "mocha": "~1.9.0"
   }
 }

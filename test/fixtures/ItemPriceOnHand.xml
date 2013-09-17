@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfItemPriceOnHand xmlns="http://services.stuller.com/">
+  <ItemPriceOnHand>
+    <RequestedItem>string</RequestedItem>
+    <ItemNumber>string</ItemNumber>
+    <ItemID>int</ItemID>
+    <UnitPrice>decimal</UnitPrice>
+    <MSRP>string</MSRP>
+    <QuantityAvailable>int</QuantityAvailable>
+    <Status>string</Status>
+    <DiscountPercent>string</DiscountPercent>
+  </ItemPriceOnHand>
+  <ItemPriceOnHand>
+    <RequestedItem>string</RequestedItem>
+    <ItemNumber>string</ItemNumber>
+    <ItemID>int</ItemID>
+    <UnitPrice>decimal</UnitPrice>
+    <MSRP>string</MSRP>
+    <QuantityAvailable>int</QuantityAvailable>
+    <Status>string</Status>
+    <DiscountPercent>string</DiscountPercent>
+  </ItemPriceOnHand>
+</ArrayOfItemPriceOnHand>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfItem>
+    <Item>
+        <ItemID>91487</ItemID>
+        <RequestedItem>R16368:103807:P</RequestedItem>
+        <ItemNumber>R16368:103807:P</ItemNumber>
+        <Found>true</Found>
+        <Series>R16368</Series>
+        <Quality>14K Yellow</Quality>
+        <Size>12.00 MM</Size>
+        <Polish>Polished</Polish>
+        <SeriesDescription>Confirmation Medal</SeriesDescription>
+        <ShortDescription>R16368 / 14K Yellow / 12.00 MM / Polished</ShortDescription>
+        <Description>CONFIRMATION MEDAL</Description>
+        <UnitPrice>52.93000</UnitPrice>
+        <QuantityAvailable>7</QuantityAvailable>
+        <Weight>0.79313863800</Weight>
+        <SpecialOrder>false</SpecialOrder>
+        <IsHIYW>true</IsHIYW>
+        <IsSizable>false</IsSizable>
+        <FingerSize>-1</FingerSize>
+        <ExactSized>false</ExactSized>
+        <LeadTime>45</LeadTime>
+        <Status>ACTIVE</Status>
+        <DiscountPercent>0.0000</DiscountPercent>
+        <Uom>EA</Uom>
+        <Images>
+            <ItemImage>
+                <Type>TOP</Type>
+                <ImagePath>finjewelry\religious\R16368_SS_18_3.jpg</ImagePath>
+                <ThumbnailPath>finjewelry\religious\thumb\R16368_SS_18_3.jpg</ThumbnailPath>
+                <IsDefault>true</IsDefault>
+            </ItemImage>
+            <ItemImage>
+                <Type>ALT</Type>
+                <ImagePath>finjewelry\religious\R16368_Y_15mm.jpg</ImagePath>
+                <ThumbnailPath>finjewelry\religious\thumb\R16368_Y_15mm.jpg</ThumbnailPath>
+                <IsDefault>false</IsDefault>
+            </ItemImage>
+        </Images>
+        <SetWith />
+    </Item>
+    <Item>
+        <ItemID>91487</ItemID>
+        <RequestedItem>R16368:103807:P</RequestedItem>
+        <ItemNumber>R16368:103807:P</ItemNumber>
+        <Found>true</Found>
+        <Series>R16368</Series>
+        <Quality>14K Yellow</Quality>
+        <Size>12.00 MM</Size>
+        <Polish>Polished</Polish>
+        <SeriesDescription>Confirmation Medal</SeriesDescription>
+        <ShortDescription>R16368 / 14K Yellow / 12.00 MM / Polished</ShortDescription>
+        <Description>CONFIRMATION MEDAL</Description>
+        <UnitPrice>52.93000</UnitPrice>
+        <QuantityAvailable>7</QuantityAvailable>
+        <Weight>0.79313863800</Weight>
+        <SpecialOrder>false</SpecialOrder>
+        <IsHIYW>true</IsHIYW>
+        <IsSizable>false</IsSizable>
+        <FingerSize>-1</FingerSize>
+        <ExactSized>false</ExactSized>
+        <LeadTime>45</LeadTime>
+        <Status>ACTIVE</Status>
+        <DiscountPercent>0.0000</DiscountPercent>
+        <Uom>EA</Uom>
+        <Images>
+            <ItemImage>
+                <Type>TOP</Type>
+                <ImagePath>finjewelry\religious\R16368_SS_18_3.jpg</ImagePath>
+                <ThumbnailPath>finjewelry\religious\thumb\R16368_SS_18_3.jpg</ThumbnailPath>
+                <IsDefault>true</IsDefault>
+            </ItemImage>
+            <ItemImage>
+                <Type>ALT</Type>
+                <ImagePath>finjewelry\religious\R16368_Y_15mm.jpg</ImagePath>
+                <ThumbnailPath>finjewelry\religious\thumb\R16368_Y_15mm.jpg</ThumbnailPath>
+                <IsDefault>false</IsDefault>
+            </ItemImage>
+        </Images>
+        <SetWith />
+    </Item>
+</ArrayOfItem>

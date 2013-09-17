@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfItemIdentifier xmlns="http://services.stuller.com/">
+  <ItemIdentifier>
+    <ItemNumber>string</ItemNumber>
+    <ItemID>int</ItemID>
+  </ItemIdentifier>
+  <ItemIdentifier>
+    <ItemNumber>string</ItemNumber>
+    <ItemID>int</ItemID>
+  </ItemIdentifier>
+</ArrayOfItemIdentifier>

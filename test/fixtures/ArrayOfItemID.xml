@@ -1,0 +1,8 @@
+<ArrayOfItemID xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://services.stuller.com/">
+<ItemID ID="111121"/>
+<ItemID ID="112211"/>
+<ItemID ID="122111"/>
+<ItemID ID="111221"/>
+<ItemID ID="112211"/>
+<ItemID ID="221111"/>
+</ArrayOfItemID>

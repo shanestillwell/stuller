@@ -84,7 +84,7 @@ StullerApi.prototype.send = function(callback) {
  *
  */
 StullerApi.prototype.addToken = function(callback) {
-    this.requestBody += '&DeveloperToken=' + this.stullerDeveloperToken;
+    this.requestBody += '&DeveloperToken=' + this.token;
     return this;
 };
 
@@ -107,7 +107,7 @@ StullerApi.prototype.FetchItemInfo = function(numbers, callback) {
     this.format = this.formatArrayOfItem;
 
     numbers = Array.isArray(numbers) ? numbers : [numbers];
-    this.requestUrl += '/FetchItemInfo?';
+    this.requestUrl += '/FetchItemInfo';
 
     this.requestBody += this.getQuery('ItemNumbers', numbers);
 
@@ -131,7 +131,7 @@ StullerApi.prototype.FetchItemInfoByItemID = function(ids, callback) {
     this.format = this.formatArrayOfItem;
 
     ids = Array.isArray(ids) ? ids : [ids];
-    this.requestUrl += '/FetchItemInfoByItemID?';
+    this.requestUrl += '/FetchItemInfoByItemID';
 
     this.requestBody += this.getQuery('ItemIDs', ids);
 
@@ -155,7 +155,7 @@ StullerApi.prototype.FetchItemInfoBySeries = function(ids, callback) {
     this.format = this.formatArrayOfItem;
 
     ids = Array.isArray(ids) ? ids : [ids];
-    this.requestUrl += '/FetchItemInfoBySeries?';
+    this.requestUrl += '/FetchItemInfoBySeries';
 
     this.requestBody += this.getQuery('SeriesNumbers', ids);
 
@@ -178,7 +178,7 @@ StullerApi.prototype.FetchItemPriceOnHand = function(numbers, callback) {
     this.format = this.formatArrayItemPriceOnHand;
 
     numbers = Array.isArray(numbers) ? numbers : [numbers];
-    this.requestUrl += '/FetchItemPriceOnHand?';
+    this.requestUrl += '/FetchItemPriceOnHand';
 
     this.requestBody += this.getQuery('Items', numbers);
 
@@ -201,7 +201,7 @@ StullerApi.prototype.FetchItemPriceOnHandByItemID = function(ids, callback) {
     this.format = this.formatArrayItemPriceOnHand;
 
     ids = Array.isArray(ids) ? ids : [ids];
-    this.requestUrl += '/FetchItemPriceOnHandByItemID?';
+    this.requestUrl += '/FetchItemPriceOnHandByItemID';
 
     this.requestBody += this.getQuery('Items', ids);
 
@@ -224,7 +224,7 @@ StullerApi.prototype.FetchItemPriceOnHandBySeries = function(ids, callback) {
     this.format = this.formatArrayItemPriceOnHand;
 
     ids = Array.isArray(ids) ? ids : [ids];
-    this.requestUrl += '/FetchItemPriceOnHandBySeries?';
+    this.requestUrl += '/FetchItemPriceOnHandBySeries';
 
     this.requestBody += this.getQuery('Items', ids);
 
@@ -245,7 +245,7 @@ StullerApi.prototype.FetchItems = function(callback) {
 
     this.format = this.formatArrayOfItemIdentifier;
 
-    this.requestUrl += '/FetchItems?';
+    this.requestUrl += '/FetchItems';
 
     if ('function' === typeof callback) {
       return this.send(callback);
@@ -278,7 +278,7 @@ StullerApi.prototype.FetchRTWItems = function(type, callback) {
 
     this.format = this.formatArrayOfItemID;
 
-    this.requestUrl += '/FetchRTWItems?';
+    this.requestUrl += '/FetchRTWItems';
 
     // We want it to return ItemIDs
     this.requestBody += ('type=' + type);

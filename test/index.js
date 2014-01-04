@@ -46,14 +46,14 @@ describe('StullerApi', function() {
         it('should accept just a string', function() {
             var api = new StullerApi();
             api.FetchItemInfo('123ABC');
-            expect(api.requestUrl).to.contain('123ABC');
+            expect(api.requestBody).to.contain('123ABC');
         });
         it('should accept an array', function() {
             var api = new StullerApi();
             api.FetchItemInfo(['FOO', 'BAR', 'F14.5:166316:P']);
-            expect(api.requestUrl).to.contain('FOO');
-            expect(api.requestUrl).to.contain('BAR');
-        });       
+            expect(api.requestBody).to.contain('FOO');
+            expect(api.requestBody).to.contain('BAR');
+        });
 
         it('should correctly parse response', function(done) {
             var api = new StullerApi({
@@ -67,7 +67,7 @@ describe('StullerApi', function() {
                     done();
                 });
         });
-                    
+
 
 
     });
@@ -76,14 +76,14 @@ describe('StullerApi', function() {
         it('should accept just a string', function() {
             var api = new StullerApi();
             api.FetchItemInfoByItemID('123');
-            expect(api.requestUrl).to.contain('123');
+            expect(api.requestBody).to.contain('123');
         });
         it('should accept an array', function() {
             var api = new StullerApi();
             api.FetchItemInfoByItemID(['123', '444', '21048']);
-            expect(api.requestUrl).to.contain('123');
-            expect(api.requestUrl).to.contain('444');
-        });       
+            expect(api.requestBody).to.contain('123');
+            expect(api.requestBody).to.contain('444');
+        });
 
         it('should correctly parse response', function(done) {
             var api = new StullerApi({
@@ -104,14 +104,14 @@ describe('StullerApi', function() {
         it('should accept just a string', function() {
             var api = new StullerApi();
             api.FetchItemInfoByItemID('123');
-            expect(api.requestUrl).to.contain('123');
+            expect(api.requestBody).to.contain('123');
         });
         it('should accept an array', function() {
             var api = new StullerApi();
             api.FetchItemInfoBySeries(['123', '444', '21048']);
-            expect(api.requestUrl).to.contain('123');
-            expect(api.requestUrl).to.contain('444');
-        });       
+            expect(api.requestBody).to.contain('123');
+            expect(api.requestBody).to.contain('444');
+        });
 
         it('should correctly parse response', function(done) {
             var api = new StullerApi({
@@ -132,14 +132,14 @@ describe('StullerApi', function() {
         it('should accept just a string', function() {
             var api = new StullerApi();
             api.FetchItemPriceOnHand('123');
-            expect(api.requestUrl).to.contain('123');
+            expect(api.requestBody).to.contain('123');
         });
         it('should accept an array', function() {
             var api = new StullerApi();
             api.FetchItemPriceOnHand(['123', '444', '21048']);
-            expect(api.requestUrl).to.contain('123');
-            expect(api.requestUrl).to.contain('444');
-        });       
+            expect(api.requestBody).to.contain('123');
+            expect(api.requestBody).to.contain('444');
+        });
 
         it('should correctly parse response', function(done) {
             var api = new StullerApi({
@@ -159,14 +159,14 @@ describe('StullerApi', function() {
         it('should accept just a string', function() {
             var api = new StullerApi();
             api.FetchItemPriceOnHandByItemID('123');
-            expect(api.requestUrl).to.contain('123');
+            expect(api.requestBody).to.contain('123');
         });
         it('should accept an array', function() {
             var api = new StullerApi();
             api.FetchItemPriceOnHandByItemID(['123', '444', '21048']);
-            expect(api.requestUrl).to.contain('123');
-            expect(api.requestUrl).to.contain('444');
-        });       
+            expect(api.requestBody).to.contain('123');
+            expect(api.requestBody).to.contain('444');
+        });
 
         it('should correctly parse response', function(done) {
             var api = new StullerApi({
@@ -186,14 +186,14 @@ describe('StullerApi', function() {
         it('should accept just a string', function() {
             var api = new StullerApi();
             api.FetchItemPriceOnHand('123');
-            expect(api.requestUrl).to.contain('123');
+            expect(api.requestBody).to.contain('123');
         });
         it('should accept an array', function() {
             var api = new StullerApi();
             api.FetchItemPriceOnHandBySeries(['123', '444', '21048']);
-            expect(api.requestUrl).to.contain('123');
-            expect(api.requestUrl).to.contain('444');
-        });       
+            expect(api.requestBody).to.contain('123');
+            expect(api.requestBody).to.contain('444');
+        });
 
         it('should correctly parse response', function(done) {
             var api = new StullerApi({
@@ -240,12 +240,12 @@ describe('StullerApi', function() {
                 });
         });
     });
-    
+
     describe('addToken', function() {
         it('should add the developers token to the url', function() {
             var api = new StullerApi();
             api.addToken();
-            expect(api.requestUrl).to.contain('DeveloperToken=');
+            expect(api.requestBody).to.contain('DeveloperToken=');
         });
     });
 
@@ -264,7 +264,9 @@ describe('StullerApi', function() {
 });
 
 // Stubbing request
-function request(url, callback) {
+function request(options, callback) {
+
+  var url = options.url;
 
     var file = __dirname + '/fixtures/';
 

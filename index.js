@@ -16,8 +16,9 @@ var StullerApi = function(opts) {
     // Get these from Stuller and pass them in in the opts object
     this.apiUrl = opts.apiUrl;
     this.token  = opts.token;
-    
+
     this.requestUrl            = this.apiUrl;
+    this.requestBody           = '';
     this.result                = null;
     this.rawResult             = null;
 
@@ -62,7 +63,12 @@ StullerApi.prototype.send = function(callback) {
     }
 
     // Fire off the request to Stuller
-    this.request(this.requestUrl, function(err, res, body) {
+    this.request({
+      method: 'POST',
+      url: that.requestUrl,
+      body: that.requestBody,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded'}
+    }, function(err, res, body) {
         if (err) {
             console.log(err);
             return callback && callback.call(that, err);
@@ -78,7 +84,7 @@ StullerApi.prototype.send = function(callback) {
  *
  */
 StullerApi.prototype.addToken = function(callback) {
-    this.requestUrl += '&DeveloperToken=' + this.stullerDeveloperToken;
+    this.requestBody += '&DeveloperToken=' + this.stullerDeveloperToken;
     return this;
 };
 
@@ -86,7 +92,7 @@ StullerApi.prototype.addToken = function(callback) {
  * Test if the developer token has been set on the url
  */
 StullerApi.prototype.isDevTokenSet = function() {
-    return (/DeveloperToken/).test(this.requestUrl);
+    return (/DeveloperToken/).test(this.requestBody);
 };
 
 /**
@@ -103,7 +109,7 @@ StullerApi.prototype.FetchItemInfo = function(numbers) {
     numbers = Array.isArray(numbers) ? numbers : [numbers];
     this.requestUrl += '/FetchItemInfo?';
 
-    this.requestUrl += this.getQuery('ItemNumbers', numbers);
+    this.requestBody += this.getQuery('ItemNumbers', numbers);
 
     return this;
 
@@ -123,7 +129,7 @@ StullerApi.prototype.FetchItemInfoByItemID = function(ids) {
     ids = Array.isArray(ids) ? ids : [ids];
     this.requestUrl += '/FetchItemInfoByItemID?';
 
-    this.requestUrl += this.getQuery('ItemIDs', ids);
+    this.requestBody += this.getQuery('ItemIDs', ids);
 
     return this;
 
@@ -137,13 +143,13 @@ StullerApi.prototype.FetchItemInfoByItemID = function(ids) {
  * @return
  */
 StullerApi.prototype.FetchItemInfoBySeries = function(ids) {
-    
+
     this.format = this.formatArrayOfItem;
 
     ids = Array.isArray(ids) ? ids : [ids];
     this.requestUrl += '/FetchItemInfoBySeries?';
 
-    this.requestUrl += this.getQuery('SeriesNumbers', ids);
+    this.requestBody += this.getQuery('SeriesNumbers', ids);
 
     return this;
 };
@@ -162,7 +168,7 @@ StullerApi.prototype.FetchItemPriceOnHand = function(numbers) {
     numbers = Array.isArray(numbers) ? numbers : [numbers];
     this.requestUrl += '/FetchItemPriceOnHand?';
 
-    this.requestUrl += this.getQuery('Items', numbers);
+    this.requestBody += this.getQuery('Items', numbers);
 
     return this;
 };
@@ -181,7 +187,7 @@ StullerApi.prototype.FetchItemPriceOnHandByItemID = function(ids) {
     ids = Array.isArray(ids) ? ids : [ids];
     this.requestUrl += '/FetchItemPriceOnHandByItemID?';
 
-    this.requestUrl += this.getQuery('Items', ids);
+    this.requestBody += this.getQuery('Items', ids);
 
     return this;
 };
@@ -194,13 +200,13 @@ StullerApi.prototype.FetchItemPriceOnHandByItemID = function(ids) {
  * @return
  */
 StullerApi.prototype.FetchItemPriceOnHandBySeries = function(ids) {
-    
+
     this.format = this.formatArrayItemPriceOnHand;
 
     ids = Array.isArray(ids) ? ids : [ids];
     this.requestUrl += '/FetchItemPriceOnHandBySeries?';
 
-    this.requestUrl += this.getQuery('Items', ids);
+    this.requestBody += this.getQuery('Items', ids);
 
     return this;
 };
@@ -241,7 +247,7 @@ StullerApi.prototype.FetchRTWItems = function(type) {
     this.requestUrl += '/FetchRTWItems?';
 
     // We want it to return ItemIDs
-    this.requestUrl += ('type=' + type);
+    this.requestBody += ('type=' + type);
 
     return this;
 
@@ -315,7 +321,7 @@ StullerApi.prototype.formatArrayOfItemID = function(data) {
  * @return Array
  */
 StullerApi.prototype.formatArrayOfItemIdentifier = function(data) {
-    
+
     var results = [];
 
     var items = data.ArrayOfItemIdentifier.ItemIdentifier;
@@ -350,7 +356,7 @@ StullerApi.prototype.formatArrayItemPriceOnHand = function(data) {
 
     for (var i = 0; i < items.length; i++) {
         var item = {};
-        
+
         item.ItemNumber        = String(items[i].ItemNumber);
         item.ItemID            = Number(items[i].ItemID);
         item.UnitPrice         = Number(items[i].UnitPrice);
@@ -401,10 +407,10 @@ StullerApi.prototype.formatArrayOfItem = function(data) {
         item.Status            = String(items[i].Status);
         item.DiscoutPercent    = Number(items[i].DiscountPercent);
         item.Uom               = String(items[i].Uom);
-        
+
         // Grab the images from array
         item.Images = [];
-        
+
         var images = items[i].Images['ItemImage'] || [];
 
         for (var x = 0; x < images.length; x++) {
@@ -434,7 +440,7 @@ StullerApi.prototype.formatArrayOfItem = function(data) {
 
             item.SetWith.push(stone);
         }
-        
+
         results.push(item);
     }
     return results;

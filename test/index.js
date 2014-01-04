@@ -68,6 +68,18 @@ describe('StullerApi', function() {
                 });
         });
 
+        it('should send if handed a callback', function(done) {
+            var api = new StullerApi({
+                request: request
+            });
+            api
+                .FetchItemInfo(['FOO', 'BAR', 'F14.5:166316:P'], function(err, result) {
+                    expect(result[0].ItemID).to.be.defined;
+                    expect(result).length.to.be(2);
+                    done();
+                });
+        });
+
 
 
     });
@@ -92,6 +104,17 @@ describe('StullerApi', function() {
             api
                 .FetchItemInfoByItemID([123, 222])
                 .send(function(err, result) {
+                    expect(result[0].ItemID).to.be.defined;
+                    expect(result).length.to.be(2);
+                    done();
+                });
+        });
+        it('should send if handed a callback', function(done) {
+            var api = new StullerApi({
+                request: request
+            });
+            api
+                .FetchItemInfoByItemID([123, 222], function(err, result) {
                     expect(result[0].ItemID).to.be.defined;
                     expect(result).length.to.be(2);
                     done();
@@ -125,6 +148,17 @@ describe('StullerApi', function() {
                     done();
                 });
         });
+        it('should send if handed a callback', function(done) {
+            var api = new StullerApi({
+                request: request
+            });
+            api
+                .FetchItemInfoBySeries([123, 222], function(err, result) {
+                    expect(result[0].ItemID).to.be.defined;
+                    expect(result).length.to.be(2);
+                    done();
+                });
+        });
     });
 
 
@@ -148,6 +182,17 @@ describe('StullerApi', function() {
             api
                 .FetchItemPriceOnHand([123, 222])
                 .send(function(err, result) {
+                    expect(result[0].ItemID).to.be.defined;
+                    expect(result).length.to.be(2);
+                    done();
+                });
+        });
+        it('should send if handed a callback', function(done) {
+            var api = new StullerApi({
+                request: request
+            });
+            api
+                .FetchItemPriceOnHand([123, 222], function(err, result) {
                     expect(result[0].ItemID).to.be.defined;
                     expect(result).length.to.be(2);
                     done();
@@ -180,6 +225,17 @@ describe('StullerApi', function() {
                     done();
                 });
         });
+        it('should send if handed a callback', function(done) {
+            var api = new StullerApi({
+                request: request
+            });
+            api
+                .FetchItemPriceOnHandByItemID([123, 222], function(err, result) {
+                    expect(result[0].ItemID).to.be.defined;
+                    expect(result).length.to.be(2);
+                    done();
+                });
+        });
     });
 
     describe('FetchItemPriceOnHandBySeries', function() {
@@ -207,6 +263,17 @@ describe('StullerApi', function() {
                     done();
                 });
         });
+        it('should send if handed a callback', function(done) {
+            var api = new StullerApi({
+                request: request
+            });
+            api
+                .FetchItemPriceOnHandBySeries([123, 222], function(err, result) {
+                    expect(result[0].ItemID).to.be.defined;
+                    expect(result).length.to.be(2);
+                    done();
+                });
+        });
     });
 
 
@@ -224,6 +291,17 @@ describe('StullerApi', function() {
                     done();
                 });
         });
+        it('should send if handed a callback', function(done) {
+            var api = new StullerApi({
+                request: request
+            });
+            api
+                .FetchItems(function(err, result) {
+                    expect(result[0].ItemID).to.be.defined;
+                    expect(result).length.to.be(2);
+                    done();
+                });
+        });
     });
 
     describe('FetchRTWItems', function() {
@@ -235,6 +313,16 @@ describe('StullerApi', function() {
             api
                 .FetchRTWItems()
                 .send(function(err, result) {
+                    expect(result).length.to.be(6);
+                    done();
+                });
+        });
+        it('should send if handed a callback', function(done) {
+            var api = new StullerApi({
+                request: request
+            });
+            api
+                .FetchRTWItems(function(err, result) {
                     expect(result).length.to.be(6);
                     done();
                 });

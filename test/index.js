@@ -358,16 +358,12 @@ function request(options, callback) {
 
     var file = __dirname + '/fixtures/';
 
-    if (~url.indexOf('FetchItemInfo?')) file += 'ArrayOfItem.xml';
-    if (~url.indexOf('FetchItemInfoByItemID?')) file += 'ArrayOfItem.xml';
-    if (~url.indexOf('FetchItemInfoBySeries?')) file += 'ArrayOfItem.xml';
+    if (~url.indexOf('FetchItemInfo')) file += 'ArrayOfItem.xml';
 
-    if (~url.indexOf('FetchItemPriceOnHand?')) file += 'ItemPriceOnHand.xml';
-    if (~url.indexOf('FetchItemPriceOnHandByItemID?')) file += 'ItemPriceOnHand.xml';
-    if (~url.indexOf('FetchItemPriceOnHandBySeries?')) file += 'ItemPriceOnHand.xml';
+    if (~url.indexOf('FetchItemPriceOnHand')) file += 'ItemPriceOnHand.xml';
 
-    if (~url.indexOf('FetchItems?')) file += 'ArrayOfItemIdentifier.xml';
-    if (~url.indexOf('FetchRTWItems?')) file += 'ArrayOfItemID.xml';
+    if (~url.indexOf('FetchItems')) file += 'ArrayOfItemIdentifier.xml';
+    if (~url.indexOf('FetchRTWItems')) file += 'ArrayOfItemID.xml';
 
 
     fs.readFile(file, function(err, res) {

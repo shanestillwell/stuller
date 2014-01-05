@@ -424,6 +424,7 @@ StullerApi.prototype.formatArrayOfItem = function(data) {
     for (var i = 0; i < items.length; i++) {
         var item = {};
 
+        item.RequestedItem     = Number(items[i].RequestedItem);
         item.ItemID            = Number(items[i].ItemID);
         item.ItemNumber        = String(items[i].ItemNumber);
         item.Series            = String(items[i].Series);
@@ -471,10 +472,10 @@ StullerApi.prototype.formatArrayOfItem = function(data) {
         for (var s = 0; s < stones.length; s++) {
             var stone = {};
 
-            stone.ItemNumber = String(images[s].ItemNumber);
-            stone.Size = String(images[s].Size);
-            stone.Quantity = Number(images[s].Quantity);
-            stone.Description = String(images[s].Description);
+            stone.ItemNumber = String(stones[s].ItemNumber);
+            stone.Size = String(stones[s].Size);
+            stone.Quantity = Number(stones[s].Quantity);
+            stone.Description = String(stones[s].Description);
 
             item.SetWith.push(stone);
         }
